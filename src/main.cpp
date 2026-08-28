@@ -1,4 +1,7 @@
 #include "cpu.h"
+#include "mem.h"
+#include "temp.h"
+
 #include "events.h"
 #include "display.h"
 #include <thread>
@@ -11,8 +14,8 @@ int main(){
 	Event event;
 
 	CpuData cpu_data;
-	//MemData mem_data;
-	//TempData temp_data;
+	MemData mem_data;
+	TempData temp_data;
 
 	while(handleEvents(event)){
 		std::cout<<"1";
@@ -20,13 +23,13 @@ int main(){
 		readCpuData(cpu_data);
 
 		//get memory data
-		//readMemData(mem_data);
+		readMemData(mem_data);
 
 		//get temperature data
-		//readTempData(temp_data);
+		readTempData(temp_data);
 		
 		//display the info
-		tuiDisplay(cpu_data);
+		tuiDisplay(cpu_data,mem_data,temp_data);
 		
 		//read istream
 		readUserInput(event);

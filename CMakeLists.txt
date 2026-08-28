@@ -8,6 +8,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_executable(cpu_monitor
 	src/main.cpp
 	src/monitor/cpu.cpp
+	src/monitor/mem.cpp
+	src/monitor/temp.cpp
 	src/events/events.cpp
 	src/display/display.cpp
 )
