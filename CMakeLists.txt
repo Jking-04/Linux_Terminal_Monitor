@@ -12,11 +12,14 @@ add_executable(cpu_monitor
 	src/monitor/temp.cpp
 	src/events/events.cpp
 	src/display/display.cpp
+	src/display/bar.cpp
+	src/utils/reader.cpp
 )
 
 target_include_directories(cpu_monitor PRIVATE
 	src/monitor
 	src/events
 	src/display
+	src/utils
 
 )

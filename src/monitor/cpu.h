@@ -1,6 +1,6 @@
 #pragma once
-#include <string>
-#include <fstream>
+
+#include "reader.h"
 #include <iomanip>
 #include <cstdint>
 #include <algorithm>
@@ -16,6 +16,6 @@ struct CpuData{
 	CpuData();
 };
 
-uint64_t readValue(std::string);
+void processCpuStatic(std::string,std::string,CpuData&);
 
 void readCpuData(CpuData&);

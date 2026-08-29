@@ -1,5 +1,5 @@
 #pragma once
-#include "cpu.h"
+#include "reader.h"
 
 struct TempData{
 	//dynamic type

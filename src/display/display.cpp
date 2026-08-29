@@ -10,7 +10,7 @@ void tuiDisplay(CpuData& cpu,MemData & mem,TempData & temp){
 	
 	double usage_gb = mem._curr_usage/1024.0f/1024.0f;
 	double max_gb = mem._max_memory/1024.0f/1024.0f;
-	std::cout<<std::fixed<<std::setprecision(1)<<usage_gb <<"/"<<max_gb;
+	std::cout<<"mem: ["<<printBar(usage_gb,max_gb,20)<<"]";
 	
 	//std::cout<<_frequency<<std::endl;
 };

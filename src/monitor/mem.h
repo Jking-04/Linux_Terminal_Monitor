@@ -1,5 +1,6 @@
 #pragma once
 
+#include "reader.h"
 #include <string>
 #include <fstream>
 #include <iomanip>
@@ -15,6 +16,10 @@ struct MemData{
 
 	MemData();
 };
+
+void processMemStatic(std::string&,std::string&,MemData& mem);
+
+void processMemDynamic(std::string&,std::string&,MemData& mem);
 
 void readMemData(MemData&);
 
