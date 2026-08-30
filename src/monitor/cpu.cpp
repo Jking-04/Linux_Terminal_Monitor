@@ -13,7 +13,7 @@ void processCpuStatic(std::string key,std::string val,CpuData& cpu)
 }
 
 CpuData::CpuData(): _model{},_core_count{}{	
-	readFile<processCpuStatic>("/proc/cpuinfo",*this);
+	readFile<processKV<processCpuStatic,CpuData>>("/proc/cpuinfo",*this);
 }
 
 void readCpuData(CpuData& cpu){

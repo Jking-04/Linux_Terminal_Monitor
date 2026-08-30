@@ -1,24 +1,30 @@
 #include "cpu.h"
+
 #include "mem.h"
 #include "temp.h"
+#include "network.h"
 
 #include "events.h"
 #include "display.h"
+#include "timekeeper.h"
+
 #include <thread>
 #include <chrono>
 
 int main(){
-	
-	std::cout<<"2";
 	
 	Event event;
 
 	CpuData cpu_data;
 	MemData mem_data;
 	TempData temp_data;
+	NetData net_data;
+
+	TimeKeeper& time = TimeKeeper::getInstance();
 
 	while(handleEvents(event)){
-		std::cout<<"1";
+		double elapsed_time = time.calcElapsedTime();
+
 		// get cpu data
 		readCpuData(cpu_data);
 
@@ -28,11 +34,14 @@ int main(){
 		//get temperature data
 		readTempData(temp_data);
 		
+		//get network data
+		readNetData(net_data);
+		
 		//display the info
-		tuiDisplay(cpu_data,mem_data,temp_data);
+		tuiDisplay(cpu_data,mem_data,temp_data,net_data,elapsed_time);
 		
 		//read istream
-		readUserInput(event);
+		//readUserInput(event);
 
 		//wait
 		std::this_thread::sleep_for(std::chrono::seconds(1));

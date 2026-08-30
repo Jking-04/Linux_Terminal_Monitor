@@ -15,9 +15,9 @@ void processMemDynamic(std::string& key,std::string& val,MemData& mem){
 }
 
 MemData::MemData(){
-	readFile<processMemStatic>("/proc/meminfo",*this);
+	readFile<processKV<processMemStatic,MemData>>("/proc/meminfo",*this);
 }
 
 void readMemData(MemData& mem){
-	readFile<processMemDynamic>("/proc/meminfo",mem);
+	readFile<processKV<processMemDynamic,MemData>>("/proc/meminfo",mem);
 }
