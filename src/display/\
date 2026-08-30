@@ -11,12 +11,15 @@ void tuiDisplay(CpuData& cpu,MemData & mem,TempData & temp, NetData& Net, double
 	
 	double usage_gb = mem._curr_usage/1024.0f/1024.0f;
 	double max_gb = mem._max_memory/1024.0f/1024.0f;
-	std::cout<<"mem: ["<<printBar(usage_gb,max_gb,20)<<"]"<<std::endl;
+	std::cout<<"mem: ["<<printBar(usage_gb,max_gb,20)<<"]";
 
 	if (Net._old_upload_reads.size() !=0){
 	for(size_t i =0;i<Net._net_names.size();i++){
+		std::cout<<"here 1 ";
 		double upload_speed = (Net._new_upload_reads.at(i) - Net._old_upload_reads.at(i))/elipsed_time;
+		std::cout<<"here 2 ";
 		double download_speed = (Net._new_download_reads.at(i) - Net._old_download_reads.at(i))/elipsed_time;
+		std::cout<<"here 3 ";
 		std::cout<<Net._net_names.at(i)<<" up:"<<upload_speed<<" down:"<<download_speed<<std::endl;
 
 	}
@@ -26,8 +29,6 @@ void tuiDisplay(CpuData& cpu,MemData & mem,TempData & temp, NetData& Net, double
 
 	Net._new_upload_reads.clear();
 	Net._new_download_reads.clear();
-
-	Net._net_names.clear();
 	
 	//std::cout<<_frequency<<std::endl;
 };
