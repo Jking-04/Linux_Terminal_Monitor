@@ -9,3 +9,17 @@
 #include "bar.h"
 
 void tuiDisplay(CpuData&,MemData&,TempData&,NetData&,double);
+
+void openAlternateTerminal();
+
+void closeAlternateTerminal();
+
+void clearTerminal();
+
+void displayCpuData(CpuData&,TempData&);
+
+void displayMemData(MemData&);
+
+void displayNetData(NetData&,double);
+
+void displayGap();

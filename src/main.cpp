@@ -12,7 +12,6 @@
 #include <chrono>
 
 int main(){
-	
 	Event event;
 
 	CpuData cpu_data;
@@ -21,6 +20,8 @@ int main(){
 	NetData net_data;
 
 	TimeKeeper& time = TimeKeeper::getInstance();
+
+	openAlternateTerminal();
 
 	while(handleEvents(event)){
 		double elapsed_time = time.calcElapsedTime();
@@ -41,12 +42,13 @@ int main(){
 		tuiDisplay(cpu_data,mem_data,temp_data,net_data,elapsed_time);
 		
 		//read istream
-		//readUserInput(event);
+		readUserInput(event);
 
 		//wait
 		std::this_thread::sleep_for(std::chrono::seconds(1));
 
 	}
+	closeAlternateTerminal();
 	
 	return 0;
 }

@@ -27,7 +27,7 @@ bool check_in_queue(){
 }
 
 void readUserInput(Event& event){
-	if(check_in_queue){
+	if(check_in_queue()){
 		char c;
 		std::cin.get(c);
 		if(c == 'q'){
